@@ -1,8 +1,6 @@
 package model;
 
-import java.io.Serializable;
-
-public class PessoaJuridica extends Pessoa implements Serializable {
+public class PessoaJuridica extends Pessoa {
     private String cnpj;
     
     public PessoaJuridica (int id, String nome, String cnpj){
