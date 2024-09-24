@@ -25,6 +25,6 @@ public class PessoaFisica extends Pessoa {
     
     @Override
     public void exibir(){
-        System.out.printf("ID: %d \nNome: %s\nCPF: %s\nIdade: %d\n", getId(), getNome(), getCpf(), getIdade());
+        System.out.printf("Id: %d \nNome: %s\nCPF: %s\nIdade: %d\n", getId(), getNome(), getCpf(), getIdade());
     }
 }

@@ -17,10 +17,14 @@ public class PessoaJuridicaRepo {
         obterTodos().set(index, alteracao);
     }
     public void excluir(int Id){
+        PessoaJuridica exclusao = null;
         for(PessoaJuridica pessoa: obterTodos()){
             if(pessoa.getId() == Id){
-                obterTodos().remove(pessoa);
+                exclusao = pessoa;
             }
+        }
+        if(exclusao != null){
+            obterTodos().remove(exclusao);
         }
     }
     public PessoaJuridica obter(int Id){
@@ -32,7 +36,7 @@ public class PessoaJuridicaRepo {
         return null;
     }
     public void persistir(String nome_arquivo)throws FileNotFoundException, IOException{
-            FileOutputStream arquivo = new FileOutputStream(nome_arquivo + ".ser");
+            FileOutputStream arquivo = new FileOutputStream(nome_arquivo + ".juridica.bin");
             ObjectOutputStream output = new ObjectOutputStream(arquivo);
             output.writeObject(obterTodos());
             output.close();
@@ -40,8 +44,8 @@ public class PessoaJuridicaRepo {
             System.out.println("Dados de Pessoa Jurídica Armazenados");
     }
     public void recuperar(String nome_arquivo) throws FileNotFoundException, IOException, ClassNotFoundException{
-        ArrayList<PessoaJuridica> lista = null;
-        String nome_arquivo_completo = nome_arquivo + ".ser";
+        ArrayList<PessoaJuridica> lista;
+        String nome_arquivo_completo = nome_arquivo + ".juridica.bin";
         FileInputStream arquivo = new FileInputStream(nome_arquivo_completo);
         ObjectInputStream input = new ObjectInputStream(arquivo);
         lista = (ArrayList<PessoaJuridica>) input.readObject();

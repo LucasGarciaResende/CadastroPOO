@@ -17,6 +17,6 @@ public class PessoaJuridica extends Pessoa {
     
     @Override
     public void exibir(){
-        System.out.printf("ID: %d \nNome: %s\nCNPJ: %s\n", getId(), getNome(), getCnpj());
+        System.out.printf("Id: %d \nNome: %s\nCNPJ: %s\n", getId(), getNome(), getCnpj());
     }
 }
